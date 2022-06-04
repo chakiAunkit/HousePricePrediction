@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 __locations = None
-__data_columns = None
+__data_columns = np.zeros(300)
 __model = None
 
 
