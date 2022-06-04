@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 __locations = None
-__data_columns = []
+__data_columns = None
 __model = None
 
 
@@ -36,11 +36,11 @@ def load_saved_artifacts():
     global __locations
     global __model
 
-    with open('./artifacts/columns.json', 'r') as f:
+    with open('./columns.json', 'r') as f:
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:]
 
-    with open('./artifacts/home_price_model.pickle', 'rb') as f:
+    with open('./home_price_model.pickle', 'rb') as f:
         __model = pickle.load(f)
 
 
