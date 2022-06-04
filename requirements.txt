@@ -8,3 +8,5 @@ Werkzeug==0.16.0
 Jinja2==2.10.1
 itsdangerous==1.1.0
 MarkupSafe==1.1.1
+Flask-Cors==3.0.10
+requests==2.27.1
