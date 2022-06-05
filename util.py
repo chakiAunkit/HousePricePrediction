@@ -26,7 +26,7 @@ def get_estimated_price(location, sqft, bhk, bath):
 
 def get_location_names():
     global __locations
-    return __locations
+    return datadict
 
 
 def load_saved_artifacts():
