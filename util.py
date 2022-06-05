@@ -11,8 +11,11 @@ __model = None
 
 def get_estimated_price(location, sqft, bhk, bath):
 
+    __data_columns = datadict['data_columns']
+    __locations = __data_columns[3:]
+
     try:
-        loc_idx = datadict['data_columns'].index(location.lower())
+        loc_idx = __data_columns.index(location.lower())
     except:
         loc_idx = -1
 
@@ -31,7 +34,7 @@ def get_estimated_price(location, sqft, bhk, bath):
 
 def get_location_names():
     global __locations
-    return datadict
+    return datadict['data_columns'][3:]
 
 
 def load_saved_artifacts():
