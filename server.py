@@ -9,7 +9,7 @@ app = Flask(__name__)
 # app.config['CORS_HEADERS'] = 'Content-Type'
 
 app.logger.addHandler(logging.StreamHandler(sys.stdout))
-app.logger.setLevel(logging.ERROR)
+app.logger.setLevel(logging.INFO)
 
 CORS(app, support_credentials=True)
 

@@ -2,6 +2,7 @@ from copyreg import pickle
 import json
 import pickle
 import numpy as np
+import logging
 
 __locations = None
 __data_columns = np.zeros(300)
@@ -9,10 +10,13 @@ __model = None
 
 
 def get_estimated_price(location, sqft, bhk, bath):
+
     try:
-        loc_idx = __data_columns.index(location.lower())
+        loc_idx = datadict['data_columns'].index(location.lower())
     except:
         loc_idx = -1
+
+    logging.info("loc_idx = "+loc_idx)
 
     x = np.zeros(len(__data_columns))
     x[0] = sqft
@@ -20,7 +24,8 @@ def get_estimated_price(location, sqft, bhk, bath):
     x[2] = bhk
     if loc_idx >= 0:
         x[loc_idx] = 1
-
+        with open('./home_price_model.pickle', 'rb') as f:
+            __model = pickle.load(f)
         return np.round(__model.predict([x])[0], 2)
 
 
