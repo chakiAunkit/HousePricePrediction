@@ -16,7 +16,7 @@ def get_estimated_price(location, sqft, bhk, bath):
     except:
         loc_idx = -1
 
-    logging.info("loc_idx = "+loc_idx)
+    logging.info("loc_idx = "+str(loc_idx))
 
     x = np.zeros(len(__data_columns))
     x[0] = sqft
